@@ -20,7 +20,7 @@ def index():
     return "Hello World!"
 
 @app.route('/env', methods=['GET'])
-def index():
+def printenv():
     rval = """
     Headers
     ---
