@@ -22,9 +22,9 @@ def index():
 @app.route('/env', methods=['GET'])
 def printenv():
     rval = """
-    Headers
-    ---
-    {headers}
+Headers
+---
+{headers}
     """.format(headers=request.headers)
     resp = Response(rval)
     resp.headers['Content-Type'] = 'text/plain'
