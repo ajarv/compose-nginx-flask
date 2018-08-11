@@ -2,7 +2,7 @@
 
 
 from flask import Flask
-from flask import request, render_template
+from flask import request, render_template,Response
 from flask.ext.sqlalchemy import SQLAlchemy
 from config import BaseConfig
 
@@ -26,8 +26,9 @@ def printenv():
     ---
     {headers}
     """.format(headers=request.headers)
-    
-    return rval
+    resp = Response(rval)
+    resp.headers['Content-Type'] = 'text/plain'
+    return resp
 
 
 @app.route('/bpost', methods=['GET', 'POST'])
